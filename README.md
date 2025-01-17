@@ -1,0 +1,1 @@
+# Decoding-the-Issue-Resolution-Process-In-Practice-via-Issue-Report-Analysis-A-Case-Study-of-Firefox
