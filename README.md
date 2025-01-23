@@ -19,7 +19,8 @@ This artifact includes all the essential materials required to replicate the stu
 7. Procedure and results of the generalizability study including Chromium and GnuCash issue reports
 
 # Provenance
-The artifact is publicly available at:
+The artifact is publicly available at: 
+
 The paper’s preprint is publicly available at: https://antu-saha.github.io/assets/pdf/papers/icse-2025.pdf
 
 # Directory Structure
@@ -57,7 +58,7 @@ This package contains the following files/folders:
 # Data
 In this study, we qualitatively analyzed the developers’ discussion in the issue reports and assigned the issue report comments specific codes (i.e., topics discussed in the comment). We provide the annotated issue report data in JSON format where “quote” represents the issue report comments and “code” represents the assigned code (i.e., topic) to that comment. The assigned annotation codes were used to identify the issue resolution stages. Finally, utilizing the stages, we identified the overall Mozilla issue resolution process and derived 47 issue resolution patterns.
 
-The annotation data will be found at:
+The annotation data is available at: https://github.com/sea-lab-wm/Decoding-the-Issue-Resolution-Process-of-Mozilla/blob/main/b_annotation_data/annotation_data.json
 
 # Setup
 No special setup is required to use the artifact. Most of the materials are provided in PDF, XLSX, or JSON format which can be opened using respective software (i.e., PDF reader, Microsoft Excel, and JSON reader). Additionally, we provided simple Python scripts to derive results and automate result analysis. The scripts can be executed (not mandatory) on any machine (e.g., Windows, Linux, or Mac) with Python 3 or above.
@@ -76,7 +77,7 @@ This artifact can be used in two ways: (1) to replicate the results of this stud
 4. **User Study:** To conduct the user study (i.e., interview) involving developers to understand the usefulness of the identified patterns, use the methodology discussed in e_interview/interview_methodology_and_results.pdf.
 
 # Contact Information
-**Antu Saha**, PhD Candidate
+[**Antu Saha**](https://antu-saha.github.io/), PhD Candidate
 
 William & Mary
 
