@@ -1,12 +1,15 @@
+# Paper Title
+**Decoding the Issue Resolution Process In Practice via Issue Report Analysis: A Case Study of Firefox**
+
+Link to the paper: https://antu-saha.github.io/assets/pdf/papers/icse-2025.pdf
+
 # Purpose
-This repository presents the replication package associated with our paper:
-`Antu Saha and Oscar Chaparro, “Decoding the Issue Resolution Process In Practice via Issue Report Analysis: A Case Study of Firefox,” in Proceedings of the 47th IEEE/ACM International Conference on Software Engineering (ICSE 2025).`
-Link to the full paper:
+This artifact complements the research paper by offering a manually curated dataset of coded issue reports of Mozilla products, i.e., Core and Firefox. The dataset contains the manually assigned topics (a.k.a, codes) to the developers’ discussion in the issue reports. The topics are categorized into the issue resolution activities (i.e., stages) performed to resolve the issue which facilitates the derivation of the issue resolution process and patterns of the Mozilla project. This artifact enables the reproducibility and verifiability of our results and findings presented in the paper. Moreover, it promotes further research into understanding the issue resolution process of Mozilla as well as other software projects.
 
 # Overview
-In this study, we aim to understand the issue resolution process implemented in practice by analyzing the issue reports of Mozilla Firefox. We qualitatively and quantitatively analyzed the discussions found in 356 Firefox issue reports, identified the overall resolution process at Firefox, and derived a catalog of 47 patterns that represent instances of the process. We carried out a user study involving Mozilla developers to understand the usefulness of the derived patterns and conducted a small-scale study on issue reports of Chromium and GnuCash projects to understand the generalizability of the findings of the study.
+In this study, we aim to understand the issue resolution process implemented in practice by analyzing the issue reports of Mozilla Firefox. We qualitatively and quantitatively analyzed the discussions found in 356 Firefox issue reports, identified the overall resolution process at Firefox, and derived a catalog of 47 patterns representing instances of the process. We carried out a user study involving Mozilla developers to understand the usefulness of the derived patterns. We conducted a small-scale study on issue reports of Chromium and GnuCash projects to understand the generalizability of the findings of the study.
 
-This artifact includes all the essential materials required to replicate the study's findings and to facilitate similar research on other projects. In summary, this artifact contains:
+This artifact includes all the essential materials required to replicate the study's findings and to facilitate similar research on other projects. The provided scripts and programs can be used to replicate the quantitative results and generate figures and plots. As the qualitative results require manual investigation, we provided all the detailed results in the artifact. In summary, this artifact contains:
 1. Detailed procedure and guidelines for annotating issue reports
 2. Annotation catalog including annotation codes and identified stages with their description, frequency, rules to apply them, and real examples
 3. Annotated data of 356 Mozilla issue reports with all the necessary statistics
@@ -17,7 +20,7 @@ This artifact includes all the essential materials required to replicate the stu
 
 # Provenance
 The artifact is publicly available at:
-The paper’s preprint is publicly available at:
+The paper’s preprint is publicly available at: https://antu-saha.github.io/assets/pdf/papers/icse-2025.pdf
 
 # Directory Structure
 This package contains the following files/folders:
@@ -57,9 +60,23 @@ In this study, we qualitatively analyzed the developers’ discussion in the iss
 The annotation data will be found at:
 
 # Setup
-No special setup is required to reuse the materials provided in this artifact. Most of the materials are provided in PDF, XLSX, or JSON format which can be opened using respective software (i.e., PDF reader, Microsoft Excel, and JSON reader). Additionally, we provided simple Python scripts to derive results and automate result analysis. The scripts can be executed (not mandatory) in any machine (e.g., Windows, Linux, or Mac) with Python 3 or above.
+No special setup is required to use the artifact. Most of the materials are provided in PDF, XLSX, or JSON format which can be opened using respective software (i.e., PDF reader, Microsoft Excel, and JSON reader). Additionally, we provided simple Python scripts to derive results and automate result analysis. The scripts can be executed (not mandatory) on any machine (e.g., Windows, Linux, or Mac) with Python 3 or above.
 
 # Usage
-This artifact can be used in two ways: (1) replicate the results of this study, and (2) conduct a similar research on a different software project. To replicate the results of the study or reuse the artifact to identify the issue resolution patterns of other projects using this artifact, one has to perform the following steps:
+This artifact can be used in two ways: (1) to replicate the results of this study, and (2) to conduct similar research on a different software project. To replicate the results of the study or reuse the artifact to identify the issue resolution patterns of other projects using this artifact, one has to perform the following steps:
+1. **Issue Discussion Annotation:** The first step is to investigate and annotate the developers’ discussion in the issue reports. The detailed guidelines are found at a_issue_annotation/issue_discussion_annotation_details.pdf. This step comprises the following sub-steps:
+   * *Project Selection:* Select the project to investigate the issue report discussion and identify the issue resolution patterns. In our study, we selected three projects, i.e., Mozilla (Core and Firefox), Chromium, and GnuCash.
+   * *Issue Report Collection:* Collect a statistically significant sample of FIXED and RESOLVED issue reports to investigate the developers’ discussion.
+   * *Issue Annotation:* Annotate the issue reports by following the guidelines (a_issue_annotation/issue_annotation_guidelines.pdf) and using the issue annotation catalog (a_issue_annotation/issue_annotation.xlsx/annotation_codes).
+   * *Annotation Data Collection:* Collect the annotation data in some format (e.g., JSON or CSV). Our annotation data is found at b_annotation_data/annotation_data.json.
+2. **Stage and Patterns Derivation:** Once the issue reports are annotated, the next step is to derive stages and patterns. This step includes the following sub-steps:
+   * *Stage Sequence Derivation:* To derive stage sequence which represents the issue resolution activities sequentially, we need to map the annotation codes to the resolution stages using c_stages_and_patterns_derivation/stage_derivation.xlsx. To automatically perform this step, use the Python script: c_stages_and_patterns_derivation/derive_stage_sequence.py. The input to this script is the annotation data in JSON format and the output is the derived stages in CSV format. Stage sequences for our data is found at: c_stages_and_patterns_derivation/stages.csv.
+   * *Pattern Derivation:* Using the stage sequences, derive the issue resolution patterns for each issue report using the methodology discussed in the paper (Section III.E). For our case, the pattern derivation is showed in c_stages_and_patterns_derivation/pattern_derivation.xlsx.
+3. **Result Analysis:** The next step is to analyze the stages and patterns to draw conclusions about the issue resolution stages, process, and patterns. Use the Python scripts, i.e., d_results_analysis/get_statistics.py and d_results_analysis/mannwhitneyu_test.py to automate the result analysis process. Our result analysis are detailed in three XLSX files: d_results_analysis/RQ_1_stage_analysis.xlsx, d_results_analysis/RQ_2_3_issue_resolution_process.xlsx, and d_results_analysis/RQ_4_pattern_analysis.xlsx.
+4. **User Study:** To conduct the user study (i.e., interview) involving developers to understand the usefulness of the identified patterns, use the methodology discussed in e_interview/interview_methodology_and_results.pdf.
 
-TODO: Add the steps to replicate the results of the study
+# Contact Information
+**Antu Saha**, PhD Candidate
+William & Mary
+Virginia, USA
+asaha02@wm.edu
