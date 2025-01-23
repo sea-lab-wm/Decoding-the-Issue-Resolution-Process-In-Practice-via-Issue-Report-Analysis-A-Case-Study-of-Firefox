@@ -21,7 +21,7 @@ This artifact includes all the essential materials required to replicate the stu
 # Provenance
 The artifact is publicly available at: https://doi.org/10.5281/zenodo.14727541
 
-`DOI: 10.5281/zenodo.14727542`
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14727542.svg)](https://doi.org/10.5281/zenodo.14727542)
 
 The paper’s preprint is publicly available at: https://antu-saha.github.io/assets/pdf/papers/icse-2025.pdf
 
