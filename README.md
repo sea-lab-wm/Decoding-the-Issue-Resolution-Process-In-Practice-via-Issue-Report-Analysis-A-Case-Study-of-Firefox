@@ -77,6 +77,9 @@ This artifact can be used in two ways: (1) to replicate the results of this stud
 
 # Contact Information
 **Antu Saha**, PhD Candidate
+
 William & Mary
+
 Virginia, USA
+
 asaha02@wm.edu
