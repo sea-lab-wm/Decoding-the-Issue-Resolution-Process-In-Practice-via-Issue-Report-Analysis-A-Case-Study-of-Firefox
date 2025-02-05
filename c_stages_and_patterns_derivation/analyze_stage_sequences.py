@@ -543,7 +543,7 @@ def get_tri_grams(pattern_list):
         })
 
     df = pd.DataFrame(results)
-    df.to_csv('tri_gram_counts.csv')
+    df.to_csv('./files/tri_gram_counts.csv')
 
 
 def create_consecutive_matrix(data_frame, matrix_file_path):
@@ -624,11 +624,11 @@ def create_consecutive_matrix(data_frame, matrix_file_path):
 
 
 if __name__ == '__main__':
-    pattern_file_path = './patterns_04_10.csv'
-    steps_matrix_file_path = './step_matrix.csv'
-    codes_matrix_file_path = './code_matrix.csv'
-    consequtive_steps_matrix = './consequtive_steps_matrix.csv'
-    first_and_second_steps_matrix = './first_and_second_steps_matrix.csv'
+    pattern_file_path = './files/patterns.csv'
+    steps_matrix_file_path = './files/step_matrix.csv'
+    codes_matrix_file_path = './files/code_matrix.csv'
+    consequtive_steps_matrix = './files/consequtive_steps_matrix.csv'
+    first_and_second_steps_matrix = './files/first_and_second_steps_matrix.csv'
 
     # Load the CSV data into a pandas DataFrame
     df = pd.read_csv(pattern_file_path, sep=';')
