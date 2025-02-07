@@ -1,3 +1,5 @@
+import os.path
+
 import pandas as pd
 from collections import defaultdict
 
@@ -134,7 +136,7 @@ def first_step_with_no_or_before_second_step(pattern_list, first_step, second_st
 
 def create_matrix(data_frame, matrix_file_path, matrix_of):
     if matrix_of == 'Steps':
-        column_name = 'step_seq_with_selected_codes'
+        column_name = 'stage_seq_with_selected_codes'
     elif matrix_of == 'Codes':
         column_name = 'code_seq_abbreviated'
 
@@ -164,7 +166,7 @@ def create_matrix(data_frame, matrix_file_path, matrix_of):
 
 def create_matrix_first_and_second_steps(data_frame, matrix_file_path, matrix_of):
     if matrix_of == 'Steps':
-        column_name = 'step_seq_with_selected_codes'
+        column_name = 'stage_seq_with_selected_codes'
     elif matrix_of == 'Codes':
         column_name = 'code_seq_abbreviated'
 
@@ -547,7 +549,7 @@ def get_tri_grams(pattern_list):
 
 
 def create_consecutive_matrix(data_frame, matrix_file_path):
-    column_name = 'step_seq_with_selected_codes'
+    column_name = 'stage_seq_with_selected_codes'
 
     # Define the order of unique steps explicitly, including NO_STAGE, NO_SOURCE, and NO_TARGET
     unique_elements = ['NO_STAGE', 'NO_SOURCE', 'ISU_REP', 'ISU_ANLYS', 'SOL_DES', 'IMPL', 'CR', 'VER', 'NO_TARGET']
@@ -624,7 +626,7 @@ def create_consecutive_matrix(data_frame, matrix_file_path):
 
 
 if __name__ == '__main__':
-    pattern_file_path = './files/patterns.csv'
+    pattern_file_path = 'c_stages_and_patterns_derivation/files/patterns.csv'
     steps_matrix_file_path = './files/step_matrix.csv'
     codes_matrix_file_path = './files/code_matrix.csv'
     consequtive_steps_matrix = './files/consequtive_steps_matrix.csv'
@@ -632,12 +634,12 @@ if __name__ == '__main__':
 
     # Load the CSV data into a pandas DataFrame
     df = pd.read_csv(pattern_file_path, sep=';')
-    pattern_list = df['step_seq_with_selected_codes']
-    # create_consecutive_matrix(df, consequtive_steps_matrix)
+    pattern_list = df['stage_seq_with_selected_codes']
+    create_consecutive_matrix(df, consequtive_steps_matrix)
     # print(pattern_list)
     get_tri_grams(pattern_list)
 
-    # create_matrix_first_and_second_steps(df, first_and_second_steps_matrix, 'Steps')
+    create_matrix_first_and_second_steps(df, first_and_second_steps_matrix, 'Steps')
 
     # get_following_steps_stats(pattern_list, "ISU_REP")
     # get_following_steps_stats(pattern_list, "ISU_ANLYS")
@@ -653,11 +655,11 @@ if __name__ == '__main__':
     # get_preceding_steps_stats(pattern_list, "CR")
     # get_preceding_steps_stats(pattern_list, "VER")
 
-    # get_bi_grams(pattern_list)
-    # get_tri_grams(pattern_list)
+    get_bi_grams(pattern_list)
+    get_tri_grams(pattern_list)
 
-    # create_matrix(df, steps_matrix_file_path, 'Steps')
-    # create_matrix(df, codes_matrix_file_path, 'Codes')
+    create_matrix(df, steps_matrix_file_path, 'Steps')
+    create_matrix(df, codes_matrix_file_path, 'Codes')
 
     """# 1. In how many issues does code review lead to further implementation?
     print(f"\n1. In how many issues does code review lead to further implementation?")
@@ -715,13 +717,13 @@ if __name__ == '__main__':
 
     # 14. In how many issues does ISU_REP occur multiple times?
     print(f"\n14. In how many issues does ISU_REP occur multiple times?")
-    pattern_list = df['step_seq_with_selected_codes']
+    pattern_list = df['stage_seq_with_selected_codes']
     step = "ISU_REP"
     multiple_occurrences_of_step(pattern_list, step)
 
     # 15. In how many issues does ISU_REP occur after IMPL?
     print(f"\n15. In how many issues does ISU_REP occur after IMPL?")
-    pattern_list = df['step_seq_with_selected_codes']
+    pattern_list = df['stage_seq_with_selected_codes']
     first_step = "ISU_REP"
     second_step = "IMPL"
     count_issues_first_after_second(pattern_list, first_step, second_step)

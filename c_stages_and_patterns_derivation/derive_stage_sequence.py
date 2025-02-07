@@ -1,11 +1,11 @@
-import sys
-from c_sample_issues import read_issues, count_issues
+from c_stages_and_patterns_derivation.c_sample_issues import read_issues, count_issues
 import csv
 import json
 import pandas as pd
 from collections import Counter
 from collections import defaultdict
 import copy
+import os
 
 # All 356 coded issues
 annotated_issues_id_list = [538721, 551837, 552914, 554061, 558970, 561168, 576837, 577462, 590389, 596726, 597389,
@@ -236,9 +236,10 @@ def get_code_stats(input_csv_file, output_csv_file):
 
 
 if __name__ == '__main__':
-    annotation_data_path = '../data/annotation_data.json'
-    stage_seq_file_path = './stages.csv'
-    # annotation_stats_file_path = '../dataset/annotation_data/annotation_codes_stat.csv'
+    annotation_data_path = 'b_annotation_data/annotation_data.json'
 
-    derive_stage_sequence(annotation_data_path, stage_seq_file_path)
-    # get_annotation_codes_stats(patterns_file_path, annotation_stats_file_path)
+    files_path = './files'
+    os.makedirs(files_path, exist_ok=True)
+    patterns_file_path = './files/patterns.csv'
+
+    derive_stage_sequence(annotation_data_path, patterns_file_path)

@@ -66,7 +66,17 @@ The annotation data is available at: https://github.com/sea-lab-wm/Decoding-the-
 No special setup is required to use the artifact. Most of the materials are provided in PDF, XLSX, or JSON format which can be opened using respective software (i.e., PDF reader, Microsoft Excel, and JSON reader). 
 
 Additionally, we provided simple Python scripts to derive results and automate result analysis. The scripts can be executed (not mandatory) on any machine (e.g., Windows, Linux, or Mac) with Python 3 or above.
-To run `d_results_analysis/mannwhitneyu_test.py`, please install `scipy==1.13.1`.
+
+# How to run the scripts?
+1. Install required Python packages from `requirements.txt`:
+   ```
+   pip install -r requirements.txt
+   ```
+2. Run the following scripts sequentially:
+* ```c_stages_and_patterns_derivation/derive_stage_sequence.py```
+* ```c_stages_and_patterns_derivation/analyze_stage_sequences.py```
+* ```d_results_analysis/get_statistics.py```
+* ```d_results_analysis/mannwhitneyu_test.py```
 
 # Usage
 This artifact can be used in two ways: (1) to replicate the results of this study, and (2) to conduct similar research on a different software project. To replicate the results of the study or reuse the artifact to identify the issue resolution patterns of other projects using this artifact, one has to perform the following steps:
