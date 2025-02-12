@@ -1,10 +1,8 @@
-from c_stages_and_patterns_derivation.c_sample_issues import read_issues, count_issues
+from c_sample_issues import read_issues, count_issues
 import csv
 import json
 import pandas as pd
 from collections import Counter
-from collections import defaultdict
-import copy
 import os
 
 # All 356 coded issues
@@ -236,7 +234,7 @@ def get_code_stats(input_csv_file, output_csv_file):
 
 
 if __name__ == '__main__':
-    annotation_data_path = 'b_annotation_data/annotation_data.json'
+    annotation_data_path = '../b_annotation_data/annotation_data.json'
 
     files_path = './files'
     os.makedirs(files_path, exist_ok=True)
